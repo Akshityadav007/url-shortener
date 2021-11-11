@@ -5,7 +5,7 @@ const app = express()
 
 const port = process.env.PORT || 10000
 
-mongoose.connect('mongodb://localhost/urlShortener',{
+mongoose.connect('mongodb+srv://AkshitYadav:Akshit10%40@cluster0.y9pwl.mongodb.net/test',{
     useNewUrlParser: true, useUnifiedTopology: true
 })
 
