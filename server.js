@@ -29,18 +29,17 @@ app.post('/shortUrls', async (req,res) => {
 
 app.get('/:shortUrl', async (req,res) => {
     try{
-        const shortUrl =   await ShortUrl.findOne({ short: req.params.shortUrl })
-    }
-    catch(e){
-        console.log(e)
-    }
-  
+        const shortUrl =   await ShortUrl.findOne({ short: req.params.shortUrl })  
   if(shortUrl == null) return res.sendStatus(404)
-  
+
   shortUrl.visitCount++
   shortUrl.save()
 
   res.redirect(shortUrl.full)
+}
+catch(e){
+    console.log(e)
+}
 })
 
 app.listen(port,() => console.log(`Listening on port ${port}`));
