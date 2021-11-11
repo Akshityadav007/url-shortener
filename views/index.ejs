@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+ <title>Url Shrinker</title>
+</head>
+<body>
+    <div class="container">
+    <h1>URL Shrinker</h1>
+    <form action="/shortUrls" method="POST" class = "form-inline my-4">
+        <label for="fullUrl" class = "sr-only">URL</label>
+        <input required placeholder="Enter full URL" type="url" name = "fullUrl" id = "fullUrl" class = "form-control col mr-2">
+        <button class="btn btn-info" type = "submit">Shrink</button>
+    </form>
+
+    <table class="table table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>Full URL</th>
+                <th>Shortened URL</th>
+                <th>Visit Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% shortUrls.forEach(shortUrl => { %> 
+                <tr>
+                    <td><a href="<%= shortUrl.full %>"><%= shortUrl.full %> </a></td>
+                    <td><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
+                    <td><%= shortUrl.visitCount %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
