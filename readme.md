@@ -3,3 +3,4 @@ The generated URL is unique.
 The language used to develop is javascript.
 Designing of the web app is done by using bootstrap.
 The web application is deployed on heroku.
+The database used is mongoDB.
